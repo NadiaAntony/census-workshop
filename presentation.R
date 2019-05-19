@@ -70,7 +70,7 @@ ggplot(de_census_data, aes(fill = estimate)) +
 ggplot(de_census_data, aes(fill = estimate)) +
   geom_sf() +
   scale_fill_viridis_c() +
-  theme_void() +
+  theme_minimal() +
   labs(title = "Estimates by Census Tract")
 
 
@@ -92,7 +92,7 @@ de_census_data %>% # take the data, and then
     separate(col = NAME, into = c("Census_Tract", "County", "State"), 
              sep = ",") %>% # separate, and then
     separate(col = Census_Tract, into = c(NA, NA, "Census_Tract_Number"),
-             sep = " ") # separate out Number and then
+             sep = " ") # separate out Number
 # this result is assigned to de_census_data_clean using the assignment operator '<-'
 
 
