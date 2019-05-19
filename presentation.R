@@ -3,7 +3,7 @@ v1 <- c(1, 2, 3, 4)
 v2 <- c(5, 6, 7, 8)
 v2-v1
 
-# install.packages
+# install.packages - No Need to run these if you're on the cloud
 install.packages("sf")
 install.packages("tidycensus")
 install.packages("dplyr")
@@ -25,7 +25,16 @@ library(purrr)
 
 ## ----API-------------------------------------------------------
 census_api_key("<YOUR API KEY>")
-demo_variables <- # define the variables you want to analyze here
+ # define the variables you want to analyze here
+demo_variables <- c(white = "B02001_002", black = "B02001_003", hispanic = "B03003_003",
+                    asian = "B02001_005", foreignborn = "B05002_013", median_income = "B19013_001",
+                    households_earning_over_200k = "B19001_017", median_house_value = "B25077_001",
+                    median_monthly_rent = "B25064_001", high_school_diplomas = "B15003_017",
+                    bachelor_degrees = "B15003_022", masters_degrees = "B15003_023", Less_than_10k =
+                      "B19001_002", households_earning_10k_14999k = "B19001_003", households_earning_15k_19999k = "B19001_004", households_earning_20k_24999k =
+                      "B19001_005", households_earning_25k_29999k = "B19001_006", Owner_occupied = "B25003_002", Renter_occupied = "B25003_003", 
+                    Occupied = "B25002_002", Vacant = "B25002_003")
+
 de_census_data <- get_acs(geography = "tract",
                           state = "DE",
                           variables = demo_variables,
