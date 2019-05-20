@@ -52,7 +52,7 @@ head(de_census_data)
 de_census_data_clean <- de_census_data %>%
     separate(col = NAME, into = c("Census_Tract", "County", "State"), 
              sep = ",") %>%
-    separate(col = Census_Tract, into = c("Census", "Tract", "Census_Tract_Number"),
+    separate(col = Census_Tract, into = c(NA, NA, "Census_Tract_Number"),
              sep = " ") 
 
 # Let's look at the above code step by step using the 'grammar'
