@@ -12,7 +12,6 @@ install.packages("tidyr")
 install.packages("purrr")
 install.packages("lwgeom")
 
-
 ## ---- include=FALSE, results='hide'--------------------------------------
 library(dplyr)
 library(ggplot2)
@@ -49,31 +48,6 @@ load("data/de_census_data.RData")
 ## ------------------------------------------------------------------------
 head(de_census_data)
 
-
-## ------------------------------------------------------------------------
-ggplot(de_census_data, aes(fill = estimate))
-
-
-## ------------------------------------------------------------------------
-ggplot(de_census_data, aes(fill = estimate)) +
-  geom_sf() 
-
-
-## ------------------------------------------------------------------------
-ggplot(de_census_data, aes(fill = estimate)) +
-  geom_sf() +
-  scale_fill_viridis_c() +
-  theme_minimal() 
-
-
-## ------------------------------------------------------------------------
-ggplot(de_census_data, aes(fill = estimate)) +
-  geom_sf() +
-  scale_fill_viridis_c() +
-  theme_minimal() +
-  labs(title = "Estimates by Census Tract")
-
-
 ## ------------------------------------------------------------------------
 de_census_data_clean <- de_census_data %>%
     separate(col = NAME, into = c("Census_Tract", "County", "State"), 
@@ -85,7 +59,6 @@ de_census_data_clean <- de_census_data %>%
 de_census_data %>% # take the data, and then
     separate(col = NAME, into = c("Census_Tract", "County", "State"), 
              sep = ",")
-
 
 ## ------------------------------------------------------------------------
 de_census_data %>% # take the data, and then
