@@ -223,9 +223,12 @@ First pick one variable to view estimates
 
 ```{r}
 # Let's look at the number of foreignborn in each Tract
+## create a data frame by subsetting only the 'foreignborn'
 de_census_fb <- de_census_data_clean %>%
   filter(variable %in% c("foreignborn"))
 ```
+
+Now let's plot this
 
 ```{r fb, eval=FALSE}
 ggplot(de_census_fb, aes(fill = estimate)) +
